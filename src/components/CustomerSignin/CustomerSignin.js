@@ -34,13 +34,16 @@ export default function CustomerSignin() {
     }
   };
   // -----------------------------LOG IN -------------------------------------------------
-  const [customers, setCustomers] = useState([]);
+  const [customers, setCustomers] = useState({});
   // const [customer, setCustomer] = useState([]);
   useEffect(() => {
     axios
       .get("/customer")
       .then((Response) => {
         setCustomers(Response.data);
+        // console.log(Response.data);
+        console.log("hi");
+        console.log(Object.values(Response.data).filter((user) => user));
       })
       .catch((error) => console.log(error));
   }, [customers]);
@@ -60,10 +63,14 @@ export default function CustomerSignin() {
       alert("Invalide details!!!");
     } else {
       if (
-        customers.filter(
-          (customer) =>
-            customer.userName === info.userName &&
-            customer.passWord === info.passWord
+        // customers.filter(
+        //   (customer) =>
+        //     customer.userName === info.userName &&
+        //     customer.passWord === info.passWord
+        // ).length === 1
+        Object.values(customers).filter(
+          (user) =>
+            user.userName === info.userName && user.userName === info.passWord
         ).length === 1
       ) {
         setMainInfo({
