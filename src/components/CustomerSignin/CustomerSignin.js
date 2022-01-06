@@ -40,7 +40,7 @@ export default function CustomerSignin() {
       .get("/customer")
       .then((Response) => {
         setCustomers(Response.data);
-        console.log("hi", Response.data);
+        console.log("hiiiii", Response.data);
         // console.log(Object.values(Response.data).filter((user) => user));
       })
       .catch((error) => console.log(error));
