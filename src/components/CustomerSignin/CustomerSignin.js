@@ -34,16 +34,14 @@ export default function CustomerSignin() {
     }
   };
   // -----------------------------LOG IN -------------------------------------------------
-  const [customers, setCustomers] = useState({});
-  // const [customer, setCustomer] = useState([]);
+  const [customers, setCustomers] = useState();
   useEffect(() => {
     axios
       .get("/customer")
       .then((Response) => {
         setCustomers(Response.data);
-        // console.log(Response.data);
-        console.log("hi");
-        console.log(Object.values(Response.data).filter((user) => user));
+        console.log("hi", Response.data);
+        // console.log(Object.values(Response.data).filter((user) => user));
       })
       .catch((error) => console.log(error));
   }, [customers]);
