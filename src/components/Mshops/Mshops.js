@@ -5,7 +5,7 @@ import axios from "axios";
 
 export default function Mshops() {
   const [mshops, setMshops] = useState([]);
-
+  const a = 1;
   useEffect(() => {
     axios
       .get("/shop")
@@ -13,7 +13,7 @@ export default function Mshops() {
         setMshops(Response.data);
       })
       .catch((error) => console.log(error));
-  }, [mshops]);
+  }, [a]);
   //   console.log(mshops);
 
   return (
