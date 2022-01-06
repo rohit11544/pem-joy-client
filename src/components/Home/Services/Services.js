@@ -22,7 +22,7 @@ export default function Services({ customerDetails }) {
                 </span>
                 <div className="d-block mt-3">
                   {" "}
-                  <Link to="/Eshops" target="_blank">
+                  <Link to="/Eshops">
                     <button className=" btn btn-danger btn-sm btn-block">
                       Shops
                     </button>
@@ -46,7 +46,7 @@ export default function Services({ customerDetails }) {
                 </span>
                 <div className="d-block mt-3">
                   {" "}
-                  <Link to="/Mshops" target="_blank">
+                  <Link to="/Mshops">
                     <button className=" btn btn-primary btn-sm btn-block">
                       Shops
                     </button>
@@ -70,7 +70,7 @@ export default function Services({ customerDetails }) {
                 </span>
                 <div className="d-block mt-3">
                   {" "}
-                  <Link to="/Pshops" target="_blank">
+                  <Link to="/Pshops">
                     <button className=" btn btn-secondary btn-sm btn-block">
                       Shops
                     </button>
@@ -94,7 +94,7 @@ export default function Services({ customerDetails }) {
                 </span>
                 <div className="d-block mt-3">
                   {" "}
-                  <Link to="/CustomerSignin" target="_blank">
+                  <Link to="/CustomerSignin">
                     <button className=" btn btn-success btn-sm btn-block">
                       Workers
                     </button>
@@ -118,7 +118,7 @@ export default function Services({ customerDetails }) {
                 </span>
                 <br />
                 <div className="d-block mt-3">
-                  <Link to="/ShopJoin" target="_blank">
+                  <Link to="/ShopJoin">
                     <button
                       className=" btn btn-warning btn-sm btn-block inlineStyle"
                       data-inline="true"
@@ -128,7 +128,7 @@ export default function Services({ customerDetails }) {
                   </Link>{" "}
                   {/* </div> */}
                   {/* <div className="d-block mt-3"> */}{" "}
-                  <Link to="/ShopSignin" target="_blank">
+                  <Link to="/ShopSignin">
                     <button
                       className=" btn btn-warning btn-sm btn-block inlineStyle"
                       data-inline="true"
@@ -156,14 +156,14 @@ export default function Services({ customerDetails }) {
                 </span>
                 <div className="d-block mt-3">
                   {" "}
-                  <Link to="/workerJoin" target="_blank">
+                  <Link to="/workerJoin">
                     <button className="btn btn-warning btn-sm btn-block inlineStyle">
                       Join
                     </button>
                   </Link>{" "}
                   {/* <div className="d-block mt-3"> */}
                   {"                           "}
-                  <Link to="/WorkerSignin" target="_blank">
+                  <Link to="/WorkerSignin">
                     <button
                       className=" btn btn-warning btn-sm btn-block"
                       data-inline="true"
