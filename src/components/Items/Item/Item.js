@@ -4,11 +4,12 @@ import Navbar from "../../Navbar/Navbar";
 import StripeContainer from "./Payment/StripeContainer";
 export default function Item({ items, itemStatus, addItems, amount }) {
   const [pay, setPay] = useState(false);
+
   return (
     <>
       {items[0] === undefined ? (
         <>
-          <h1>Loading</h1>
+          <h1>Loading...</h1>
         </>
       ) : (
         <>

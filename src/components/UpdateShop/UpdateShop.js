@@ -10,6 +10,7 @@ export default function UpdateShop({ shopDetails }) {
     e.preventDefault();
     console.log(shop);
     dispatch(updateShop(shop._id, shop));
+    alert("Shop details Updated...!!");
   };
   return (
     <>

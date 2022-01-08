@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import axios from "axios";
 import UpdatePEM from "../UpdatePEM/UpdatePEM";
 
 export default function WorkerSignin() {
@@ -13,19 +13,7 @@ export default function WorkerSignin() {
     mainUserName: "",
     mainPassWord: "",
   });
-
-  const [pems, setPems] = useState([]);
-  // const [pem, setPem] = useState();
-  useEffect(() => {
-    axios
-      .get("/pem")
-      .then((Response) => {
-        setPems(Response.data);
-        // console.log(shops);
-      })
-      .catch((error) => console.log(error));
-  }, [pems]);
-
+  const pems = useSelector((state) => state.pem);
   const Login = () => {
     if (
       pems.filter(

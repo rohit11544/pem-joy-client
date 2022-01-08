@@ -40,10 +40,13 @@ export default function PaymentForm({ amount, itemStatus }) {
     if (!error) {
       try {
         const { id } = paymentMethod;
-        const response = await axios.post("http://localhost:5000/payment", {
-          amount: amount,
-          id,
-        });
+        const response = await axios.post(
+          "https://pemjoy.herokuapp.com/payment",
+          {
+            amount: amount,
+            id,
+          }
+        );
 
         if (response.data.success) {
           console.log("Successful payment");

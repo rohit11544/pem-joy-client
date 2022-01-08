@@ -1,22 +1,23 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useLocation } from "react-router-dom";
-import axios from "axios";
+import { useSelector } from "react-redux";
 import Item from "./Item/Item";
 
 export default function Items() {
-  const [shops, setShops] = useState([]);
+  // const [shops, setShops] = useState([]);
 
   // ----------------GET ITEMS-----------------------
 
-  const [items, setItems] = useState([]);
+  // const [items, setItems] = useState([]);
+  let items = [];
   const location = useLocation();
 
-  var getItemsTogether = () => {
+  var getItemsTogether = (shops) => {
     const shop = shops.filter(
       (shop) => shop._id === location.search.slice(1)
     )[0];
 
-    setItems([
+    items = [
       { image: shop.image1, item: shop.item1, price: shop.price1 },
       { image: shop.image2, item: shop.item2, price: shop.price2 },
       { image: shop.image3, item: shop.item3, price: shop.price3 },
@@ -27,18 +28,16 @@ export default function Items() {
       { image: shop.image8, item: shop.item8, price: shop.price8 },
       { image: shop.image9, item: shop.item9, price: shop.price9 },
       { image: shop.image10, item: shop.item10, price: shop.price10 },
-    ]);
+    ];
   };
 
-  useEffect(() => {
-    axios
-      .get("/shop")
-      .then((Response) => {
-        setShops(Response.data);
-        getItemsTogether();
-      })
-      .catch((error) => console.log(error));
-  });
+  let shops = useSelector((state) => state.shop);
+
+  console.log(shops);
+  if (shops.length !== 0) {
+    getItemsTogether(shops);
+  }
+
   // ------------------------ADD TO CART-------------------------------------------
 
   const [itemStatus, setItemStatus] = useState([

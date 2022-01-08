@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
+import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import axios from "axios";
 
 import "./style.css";
 import UpdateShop from "../UpdateShop/UpdateShop";
@@ -15,18 +15,7 @@ export default function ShopSignin() {
     mainUserName: "",
     mainPassWord: "",
   });
-
-  const [shops, setShops] = useState([]);
-  // const [shop, setShop] = useState();
-  useEffect(() => {
-    axios
-      .get("/shop")
-      .then((Response) => {
-        setShops(Response.data);
-        // console.log(shops);
-      })
-      .catch((error) => console.log(error));
-  }, [shops]);
+  const shops = useSelector((state) => state.shop);
 
   const Login = () => {
     if (
@@ -123,7 +112,7 @@ export default function ShopSignin() {
                               </a>
                             </div>
                             <div className="d-flex align-items-center justify-content-center pb-4">
-                              <p className="mb-0 me-2">Don't Add Shop?</p>
+                              <p className="mb-0 me-2">Didn't Add Shop?</p>
                               <div className="d-block mt-3">
                                 {" "}
                                 <Link to="/ShopJoin">
