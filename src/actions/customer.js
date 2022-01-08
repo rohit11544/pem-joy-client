@@ -4,7 +4,7 @@ export const getCustomer = () => async (dispatch) => {
   try {
     const { data } = await api.fetchCustomer();
 
-    dispatch({ type: "FETCH_ALL", payload: data });
+    dispatch({ type: "FETCH_ALL_CUSTOMER", payload: data });
   } catch (error) {
     console.log(error.message);
   }
@@ -13,7 +13,7 @@ export const getCustomer = () => async (dispatch) => {
 export const createCustomer = (customer) => async (dispatch) => {
   try {
     const { data } = await api.createCustomer(customer);
-    dispatch({ type: "CREATE", payload: data });
+    dispatch({ type: "CREATE_CUSTOMER", payload: data });
   } catch (error) {
     console.log(error.message);
   }
@@ -22,7 +22,7 @@ export const createCustomer = (customer) => async (dispatch) => {
 export const updateCustomer = (id, customer) => async (dispatch) => {
   try {
     const { data } = await api.updateCustomer(id, customer);
-    dispatch({ type: "UPDATE", payload: data });
+    dispatch({ type: "UPDATE_CUSTOMER", payload: data });
   } catch (error) {
     console.log(error);
   }
@@ -31,7 +31,7 @@ export const updateCustomer = (id, customer) => async (dispatch) => {
 export const deleteCustomer = (id) => async (dispatch) => {
   try {
     await api.deleteCustomer(id);
-    dispatch({ type: "DELETE", payload: id });
+    dispatch({ type: "DELETE_CUSTOMER", payload: id });
   } catch (error) {
     console.log(error);
   }

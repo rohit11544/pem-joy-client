@@ -1,11 +1,11 @@
 import { combineReducers } from "redux";
 
-import pem from "./pem";
-import customer from "./customer";
-import shop from "./shop";
+import pemReducer from "./pem";
+import customerReducer from "./customer";
+import shopReducer from "./shop";
 
 export default combineReducers({
-  pem,
-  customer,
-  shop,
+  pem: pemReducer,
+  customer: customerReducer,
+  shop: shopReducer,
 });

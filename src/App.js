@@ -18,8 +18,16 @@ import Eshops from "./components/Eshops/Eshops";
 import Item from "./components/Items/Item/Item";
 import UpdateShop from "./components/UpdateShop/UpdateShop";
 import WorkerSignin from "./components/WorkerSignin/WorkerSignin";
-
+import { getCustomer } from "./actions/customer";
+import { getPEM } from "./actions/pem";
+import { useDispatch } from "react-redux";
+import { getShop } from "./actions/shop";
 export default function App() {
+  const dispatch = useDispatch();
+  dispatch(getCustomer());
+  dispatch(getPEM());
+  dispatch(getShop());
+
   return (
     <Router>
       <div>

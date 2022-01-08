@@ -4,7 +4,7 @@ export const getShop = () => async (dispatch) => {
   try {
     const { data } = await api.fetchShop();
 
-    dispatch({ type: "FETCH_ALL", payload: data });
+    dispatch({ type: "FETCH_ALL_SHOP", payload: data });
   } catch (error) {
     console.log(error.message);
   }
@@ -13,7 +13,7 @@ export const getShop = () => async (dispatch) => {
 export const createShop = (shop) => async (dispatch) => {
   try {
     const { data } = await api.createShop(shop);
-    dispatch({ type: "CREATE", payload: data });
+    dispatch({ type: "CREATE_SHOP", payload: data });
   } catch (error) {
     console.log(error.message);
   }
@@ -22,7 +22,7 @@ export const createShop = (shop) => async (dispatch) => {
 export const updateShop = (id, shop) => async (dispatch) => {
   try {
     const { data } = await api.updateShop(id, shop);
-    dispatch({ type: "UPDATE", payload: data });
+    dispatch({ type: "UPDATE_SHOP", payload: data });
   } catch (error) {
     console.log(error);
   }
@@ -31,7 +31,7 @@ export const updateShop = (id, shop) => async (dispatch) => {
 export const deleteShop = (id) => async (dispatch) => {
   try {
     await api.deleteShop(id);
-    dispatch({ type: "DELETE", payload: id });
+    dispatch({ type: "DELETE_SHOP", payload: id });
   } catch (error) {
     console.log(error);
   }

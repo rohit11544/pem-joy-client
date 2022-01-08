@@ -1,10 +1,8 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useDispatch } from "react-redux";
-
-import "./style.css";
+import React, { useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { createCustomer } from "../../actions/customer";
 import PEMs from "../PEMs/PEMs";
+import "./style.css";
 
 export default function CustomerSignin() {
   // -----------------------------SIGN UP -------------------------------------------------
@@ -18,7 +16,6 @@ export default function CustomerSignin() {
 
   var signUpHandler = (e) => {
     e.preventDefault();
-    // console.log(details);
     if (details.passWord === "" || details.email === "") {
       alert("Invalide details!!!");
     } else {
@@ -34,17 +31,10 @@ export default function CustomerSignin() {
     }
   };
   // -----------------------------LOG IN -------------------------------------------------
-  const [customers, setCustomers] = useState();
-  useEffect(() => {
-    axios
-      .get("/customer")
-      .then((Response) => {
-        setCustomers(Response.data);
-        console.log("hiiiii", Response.data);
-        // console.log(Object.values(Response.data).filter((user) => user));
-      })
-      .catch((error) => console.log(error));
-  }, [customers]);
+
+  // useSelector((state) => console.log(state));
+  const customers = useSelector((state) => state.customer);
+  console.log("customers : ", customers);
 
   const [mainInfo, setMainInfo] = useState({
     mainUserName: "",
@@ -61,14 +51,10 @@ export default function CustomerSignin() {
       alert("Invalide details!!!");
     } else {
       if (
-        // customers.filter(
-        //   (customer) =>
-        //     customer.userName === info.userName &&
-        //     customer.passWord === info.passWord
-        // ).length === 1
-        Object.values(customers).filter(
-          (user) =>
-            user.userName === info.userName && user.userName === info.passWord
+        customers.filter(
+          (customer) =>
+            customer.userName === info.userName &&
+            customer.passWord === info.passWord
         ).length === 1
       ) {
         setMainInfo({
@@ -157,12 +143,7 @@ export default function CustomerSignin() {
                                     }
                                   />
                                 </div>
-                                {/* <a
-                              href="#"
-                              className="btn btnStyle  mt-4 buttonStyle"
-                            >
-                              submit
-                            </a> */}
+
                                 <br />
                                 <button
                                   type="submit"

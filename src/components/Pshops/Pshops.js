@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import Navbar from "../Navbar/Navbar";
 import Pshop from "./Pshop/Pshop";
-import axios from "axios";
 
 export default function Pshops() {
-  const [pshops, setPshops] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("/shop")
-      .then((Response) => {
-        setPshops(Response.data);
-      })
-      .catch((error) => console.log(error));
-  }, [pshops]);
-  //   console.log(pshops);
+  const shop = useSelector((state) => state.shop);
 
   return (
     <>
@@ -23,7 +13,7 @@ export default function Pshops() {
       <br />
       <br />
       <Pshop
-        PshopsObj={pshops.filter((pshop) => pshop.shopType === "plumbing")}
+        PshopsObj={shop.filter((pshop) => pshop.shopType === "plumbing")}
       />
     </>
   );

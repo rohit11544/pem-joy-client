@@ -1,27 +1,14 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Navbar from "../Navbar/Navbar";
 import PEM from "./PEM/PEM";
-import axios from "axios";
 import { getDistance } from "geolib";
+import { useSelector } from "react-redux";
 
 export default function PEMs({ customer }) {
-  // console.log(customer.latitude);
-  const [mainPems, setMainPems] = useState([]);
-  const [pems, setpems] = useState([]);
-  const a = 1;
-  useEffect(() => {
-    axios
-      .get("/pem")
-      .then((Response) => {
-        setMainPems(Response.data);
-        setpems(Response.data);
-        console.log("a");
-      })
-      .catch((error) => console.log(error));
-  }, [a]);
+  const pems = useSelector((state) => state.pem);
+  const [workers, setWorkers] = useState(pems);
 
   // -----------------------------------------DISTANCE CALCULATION------------------------------------------------
-  // console.log(
   pems.map(
     (pem) =>
       (pem.distance =
@@ -30,9 +17,8 @@ export default function PEMs({ customer }) {
           { latitude: customer.latitude, longitude: customer.longitude }
         ) / 1000)
   );
-  // );
-  // ----------------------------------------SORTING-----------------------------------------------------
 
+  // ----------------------------------------SORTING-----------------------------------------------------
   function compareDistance(a, b) {
     if (a.distance < b.distance) {
       return -1;
@@ -43,10 +29,9 @@ export default function PEMs({ customer }) {
     return 0;
   }
 
-  var sortWorkersBydistance = () => {
-    pems.sort(compareDistance);
+  const sortWorkersBydistance = () => {
+    setWorkers(workers.sort(compareDistance));
   };
-  // --------------------------------------------FILTERING---------------------------------------------------
 
   return (
     <>
@@ -54,10 +39,10 @@ export default function PEMs({ customer }) {
       <br />
       <br />
       <PEM
-        workers={pems}
+        pems={pems}
+        workers={workers}
+        setWorkers={setWorkers}
         sortWorkersBydistance={sortWorkersBydistance}
-        setpems={setpems}
-        mainPems={mainPems}
       />
     </>
   );

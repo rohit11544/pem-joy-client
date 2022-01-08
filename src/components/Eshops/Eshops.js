@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import Navbar from "../Navbar/Navbar";
 import Eshop from "./Eshop/Eshop";
-import axios from "axios";
 
 export default function Eshops() {
-  const [eshops, setEshops] = useState([]);
-
-  useEffect(() => {
-    axios
-      .get("/shop")
-      .then((Response) => {
-        setEshops(Response.data);
-      })
-      .catch((error) => console.log(error));
-  }, [eshops]);
-  //   console.log(mshops);
+  const shop = useSelector((state) => state.shop);
 
   return (
     <>
@@ -23,7 +13,7 @@ export default function Eshops() {
       <br />
       <br />
       <Eshop
-        EshopsObj={eshops.filter((eshop) => eshop.shopType === "electric")}
+        EshopsObj={shop.filter((eshop) => eshop.shopType === "electric")}
       />
     </>
   );

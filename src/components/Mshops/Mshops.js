@@ -1,20 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { useSelector } from "react-redux";
 import Navbar from "../Navbar/Navbar";
 import Mshop from "./Mshop/Mshop";
-import axios from "axios";
 
 export default function Mshops() {
-  const [mshops, setMshops] = useState([]);
-  const a = 1;
-  useEffect(() => {
-    axios
-      .get("/shop")
-      .then((Response) => {
-        setMshops(Response.data);
-      })
-      .catch((error) => console.log(error));
-  }, [a]);
-  //   console.log(mshops);
+  const shop = useSelector((state) => state.shop);
 
   return (
     <>
@@ -23,7 +13,7 @@ export default function Mshops() {
       <br />
       <br />
       <Mshop
-        MshopsObj={mshops.filter((mshop) => mshop.shopType === "mechanic")}
+        MshopsObj={shop.filter((mshop) => mshop.shopType === "mechanic")}
       />
     </>
   );
