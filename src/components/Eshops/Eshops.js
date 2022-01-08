@@ -5,6 +5,10 @@ import Eshop from "./Eshop/Eshop";
 
 export default function Eshops() {
   const shop = useSelector((state) => state.shop);
+  let es = [];
+  if (shop.length !== 0) {
+    es = shop.filter((eshop) => eshop.shopType === "electric");
+  }
 
   return (
     <>
@@ -12,9 +16,7 @@ export default function Eshops() {
       <br />
       <br />
       <br />
-      <Eshop
-        EshopsObj={shop.filter((eshop) => eshop.shopType === "electric")}
-      />
+      <Eshop EshopsObj={es} />
     </>
   );
 }

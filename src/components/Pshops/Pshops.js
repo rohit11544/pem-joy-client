@@ -5,6 +5,10 @@ import Pshop from "./Pshop/Pshop";
 
 export default function Pshops() {
   const shop = useSelector((state) => state.shop);
+  let ps = [];
+  if (shop.length !== 0) {
+    ps = shop.filter((pshop) => pshop.shopType === "plumbing");
+  }
 
   return (
     <>
@@ -12,9 +16,7 @@ export default function Pshops() {
       <br />
       <br />
       <br />
-      <Pshop
-        PshopsObj={shop.filter((pshop) => pshop.shopType === "plumbing")}
-      />
+      <Pshop PshopsObj={ps} />
     </>
   );
 }
