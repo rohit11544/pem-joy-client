@@ -25,6 +25,10 @@ const CARD_OPTIONS = {
 export default function PaymentForm({ amount, itemStatus }) {
   const [payed, setPayed] = useState(0);
   const [success, setSuccess] = useState(false);
+  const [paymentStatus, setPaymentStatus] = useState({
+    status: true,
+    msz: "",
+  });
   const stripe = useStripe();
   const elements = useElements();
   const [items, setItems] = useState();
@@ -54,9 +58,11 @@ export default function PaymentForm({ amount, itemStatus }) {
         }
       } catch (error) {
         console.log("Error", error);
+        setPaymentStatus({ status: true, msz: "" });
       }
     } else {
       console.log(error.message);
+      setPaymentStatus({ status: false, msz: error.message });
     }
   };
 
@@ -64,6 +70,16 @@ export default function PaymentForm({ amount, itemStatus }) {
     <>
       {!success ? (
         <>
+          {paymentStatus.status === false ? (
+            <>
+              <h6 style={{ color: "red" }}>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                {paymentStatus.msz}!
+              </h6>
+            </>
+          ) : (
+            <></>
+          )}
           <h3> &nbsp;&nbsp;&nbsp;Enter details here</h3>
           <br />
           <form onSubmit={handleSubmit}>

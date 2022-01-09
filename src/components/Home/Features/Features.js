@@ -38,7 +38,7 @@ export default function Features() {
             <img
               height="700"
               width="100"
-              src="https://media.istockphoto.com/photos/electrician-working-at-electric-panel-picture-id1165561132?k=20&m=1165561132&s=612x612&w=0&h=b0cFzLEoJWuqxIPrws2eMOS4GwxZFKka5efVf8KbXfk="
+              src="https://peakbusinessvaluation.com/wp-content/uploads/Valuation-multiples-for-an-electrical-company.jpg"
               className="d-block w-100"
               alt="..."
             />

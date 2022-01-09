@@ -27,7 +27,7 @@ export default function Navbar() {
                   Home
                 </Link>
               </li>
-              <li className="nav-item">
+              {/* <li className="nav-item">
                 <a className="nav-link active" href="aboutus">
                   AboutUs
                 </a>
@@ -36,10 +36,14 @@ export default function Navbar() {
                 <a className="nav-link active" href="services">
                   Services
                 </a>
-              </li>
+              </li> */}
             </ul>
-            <button className="btn btn-outline-white btn-success" type="submit">
-              Welcome
+            <button
+              className="btn btn-outline-white btn-success"
+              type="submit"
+              disabled
+            >
+              Welcome!!!
             </button>
             &nbsp;&nbsp;&nbsp;
           </div>

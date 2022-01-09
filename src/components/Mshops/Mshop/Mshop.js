@@ -51,7 +51,6 @@ export default function Mshop({ MshopsObj }) {
                                 shopprop: true,
                               },
                             }}
-                            target="_blank"
                           >
                             <a href className="btn btn-outline-success btn-sm">
                               Items
