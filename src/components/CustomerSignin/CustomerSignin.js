@@ -9,8 +9,8 @@ export default function CustomerSignin() {
   const [details, setDetails] = useState({
     userName: "",
     passWord: "",
-    latitude: 0,
-    longitude: 0,
+    latitude: "",
+    longitude: "",
   });
   const dispatch = useDispatch();
 
@@ -202,6 +202,15 @@ export default function CustomerSignin() {
                                     }
                                   />
                                 </div>
+                                <a
+                                     href="https://gps-coordinates.org/"
+                                      className="btn btn-primary"
+                                      target="_blank"
+                                      rel="noopener noreferrer"
+                                     height="10px"
+                                      >
+                                    GetLocation
+                                   </a>
                                 <div className="form-group mt-2">
                                   <input
                                     type="number"
