@@ -35,7 +35,9 @@ jobs:
           echo Add other actions to build,
           echo test, and deploy your project.
           
+      - name: Twilio SMS
+        uses: twilio-labs/actions-sms@v1   
           
-          - name: Twilio SMS
-              uses: twilio-labs/actions-sms@v1
+          
+       
 
