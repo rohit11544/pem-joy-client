@@ -211,7 +211,7 @@ export default function CustomerSignin() {
                                       >
                                     GetLocation
                                    </a>
-                                 <div className="form-group mt-2">
+                                <div className="form-group mt-2">
                                   <input
                                     type="number"
                                     id="latitude"
