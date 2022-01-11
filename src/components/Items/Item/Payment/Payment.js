@@ -19,10 +19,15 @@ const CARD_OPTIONS = {
       iconColor: "#ffc7ee",
       color: "#ffc7ee",
     },
+    input: {
+      float: "right",
+      clear: "both",
+    },
   },
 };
 
 export default function PaymentForm({ amount, itemStatus }) {
+  const [address, setAddress] = useState("");
   const [payed, setPayed] = useState(0);
   const [success, setSuccess] = useState(false);
   const [paymentStatus, setPaymentStatus] = useState({
@@ -80,12 +85,30 @@ export default function PaymentForm({ amount, itemStatus }) {
           ) : (
             <></>
           )}
+
           <h3> &nbsp;&nbsp;&nbsp;Enter details here</h3>
           <br />
           <form onSubmit={handleSubmit}>
             <fieldset className="FormGroup">
               <div className="FormRow">
                 <CardElement options={CARD_OPTIONS} />
+              </div>
+
+              <div className="col-sm-4">
+                <div className="form-group">
+                  <span>
+                    <label htmlFor="address">Address </label>
+
+                    <input
+                      type="text"
+                      className="form-control"
+                      id="address"
+                      required
+                      value={address}
+                      onChange={(e) => setAddress(e.target.value)}
+                    />
+                  </span>
+                </div>
               </div>
             </fieldset>
             &nbsp;&nbsp;&nbsp;
@@ -111,7 +134,6 @@ export default function PaymentForm({ amount, itemStatus }) {
               </b>
             </h3>
           </center>
-
           <center>
             <h3>
               <b>Items Purchased:</b>
@@ -126,6 +148,13 @@ export default function PaymentForm({ amount, itemStatus }) {
               ))}
             </h3>
           </center>
+          <center>
+            <h3>
+              <b>delivery address: </b>
+              {address}
+            </h3>
+          </center>
+
           <br />
           <br />
           <br />
