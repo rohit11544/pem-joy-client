@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
 import "./style.css";
 import UpdateShop from "../UpdateShop/UpdateShop";
 
@@ -32,10 +31,6 @@ export default function ShopSignin() {
       alert("Incorrect details!!!");
     }
   };
-
-  // const Logout = (details) => {
-  //   console.log("Logout!!");
-  // };
 
   return (
     <>
