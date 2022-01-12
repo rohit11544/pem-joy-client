@@ -7,7 +7,7 @@ export default function Navbar() {
       <nav className="navbar navbar-expand-lg navbar-light bg-primary navbar-fixed">
         <div className="container-fluid">
           {/* <a className="navbar-brand " href="aboutus"> */}
-          PEMJoy
+          <h3 style={{ color: 'white' }}>PEMjoy</h3>
           {/* </a> */}
           <button
             className="navbar-toggler"
