@@ -43,6 +43,7 @@ export default function PEMs({ customer }) {
         workers={workers}
         setWorkers={setWorkers}
         sortWorkersBydistance={sortWorkersBydistance}
+        customer={customer}
       />
     </>
   );

@@ -6,9 +6,11 @@ export default function PEM({
   workers,
   setWorkers,
   sortWorkersBydistance,
+  customer,
 }) {
+  console.log(customer);
   const [check, setcheck] = useState(false);
-  console.log("workers", workers);
+  const num = "+917013637725";
   return (
     <>
       {workers.length === 0 ? (
@@ -103,6 +105,21 @@ export default function PEM({
                                   </h6>
                                   <small>{worker.address}</small>
                                   <h5>{worker.distance} km</h5>
+
+                                  <button
+                                    type="button"
+                                    className="btn btn-primary distclass"
+                                    onClick={() => {
+                                      fetch(
+                                        `http://localhost:5000/send-text?recipient=${num}&customer=${customer.userName}&lat=${customer.latitude}&lon=${customer.longitude}`
+                                      ).catch((err) => console.error(err));
+                                      alert(
+                                        `location shared to ${worker.occupation} ${worker.name}`
+                                      );
+                                    }}
+                                  >
+                                    Send location to {worker.name}
+                                  </button>
                                 </div>
                               </div>
                             </div>

@@ -30,10 +30,6 @@ export default function WorkerSignin() {
     }
   };
 
-  // const Logout = (details) => {
-  //   console.log("Logout!!");
-  // };
-
   return (
     <>
       {mainInfo.mainUserName === "" ? (
