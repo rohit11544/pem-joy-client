@@ -19,17 +19,11 @@ export default function Profile({ bio }) {
             <div className="text-center mt-3">
               {" "}
               <span className="bg-secondary p-1 px-4 rounded text-white">
-                Pro
+                {bio.profession}
               </span>
-              <h5 className="mt-2 mb-0">{bio.name}</h5>{" "}
-              <span>UI/UX Designer</span>
+              <h5 className="mt-2 mb-0">{bio.name}</h5> <span></span>
               <div className="px-4 mt-1">
-                <p className="fonts">
-                  Consectetur adipiscing elit, sed do eiusmod tempor incididunt
-                  ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-                  quis nostrud exercitation ullamco laboris nisi ut aliquip ex
-                  ea commodo consequat.{" "}
-                </p>
+                <h1 className="fonts">{bio.about} </h1>
               </div>
               <ul className="social-list">
                 <li>
@@ -44,10 +38,9 @@ export default function Profile({ bio }) {
               </ul>
               <div className="buttons">
                 {" "}
-                <button className="btn btn-outline-primary px-4">
-                  Message
-                </button>{" "}
-                <button className="btn btn-primary px-4 ms-3">Contact</button>{" "}
+                <div className="btn btn-outline-primary px-4">
+                  <input type="file" className="form-control" id="customFile" />
+                </div>
               </div>
             </div>
           </div>
