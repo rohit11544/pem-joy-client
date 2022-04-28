@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //--------------------------------------PEM----------------------------------------------------------
-const urlPEM = "https://pemjoy.herokuapp.com/pem";
+const urlPEM = "http://localhost:5000/pem";
 
 export const fetchPEM = () => axios.get(urlPEM);
 
@@ -13,7 +13,7 @@ export const updatePEM = (id, updatePEM) =>
 export const deletePEM = (id) => axios.delete(`${urlPEM}/${id}`);
 
 //--------------------------------------customer---------------------------------------------------------
-const urlCustomer = "https://pemjoy.herokuapp.com/customer";
+const urlCustomer = "http://localhost:5000/customer";
 
 export const fetchCustomer = () => axios.get(urlCustomer);
 
@@ -26,7 +26,7 @@ export const updateCustomer = (id, updateCustomer) =>
 export const deleteCustomer = (id) => axios.delete(`${urlCustomer}/${id}`);
 
 //--------------------------------------shop---------------------------------------------------------
-const urlShop = "https://pemjoy.herokuapp.com/shop";
+const urlShop = "http://localhost:5000/shop";
 
 export const fetchShop = () => axios.get(urlShop);
 
@@ -36,3 +36,15 @@ export const updateShop = (id, updateShop) =>
   axios.patch(`${urlShop}/${id}`, updateShop);
 
 export const deleteShop = (id) => axios.delete(`${urlShop}/${id}`);
+
+//--------------------------------------Admin---------------------------------------------------------
+const urlAdmin = "http://localhost:5000/admin";
+
+export const fetchAdmin = () => axios.get(urlAdmin);
+
+export const createAdmin = (newAdmin) => axios.post(urlAdmin, newAdmin);
+
+export const updateAdmin = (id, updateAdmin) =>
+  axios.patch(`${urlAdmin}/${id}`, updateAdmin);
+
+export const deleteAdmin = (id) => axios.delete(`${urlAdmin}/${id}`);
