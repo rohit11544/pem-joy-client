@@ -23,7 +23,7 @@ export default function Home({ customer }) {
         className="badge bg-primary text-wrap"
         style={{ width: "95rem", height: "4rem" }}
       >
-        <h1>Servicesddddddddddd</h1>
+        <h1>Services</h1>
       </div>
       <Services customerDetails={customer} />
       {/* ------------------------------------------------------ABOUT US--------------------------------------------------------------- */}
