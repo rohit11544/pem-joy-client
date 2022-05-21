@@ -22,11 +22,17 @@ import { getCustomer } from "./actions/customer";
 import { getPEM } from "./actions/pem";
 import { useDispatch } from "react-redux";
 import { getShop } from "./actions/shop";
+import AdminSignUp from "./components/Admin/AdminSignUp";
+import { getAdmin } from "./actions/admin";
+import Users from "./components/Admin/Users";
+import Pems from "./components/Admin/Pems";
+import Shops from "./components/Admin/Shops";
 export default function App() {
   const dispatch = useDispatch();
   dispatch(getCustomer());
   dispatch(getPEM());
   dispatch(getShop());
+  dispatch(getAdmin());
 
   return (
     <Router>
@@ -49,6 +55,10 @@ export default function App() {
           <Route path="/ShopSignin" exact element={<ShopSignin />} />
           <Route path="/UpdateShop" exact element={<UpdateShop />} />
           <Route path="/WorkerSignin" exact element={<WorkerSignin />} />
+          <Route path="/Admin" exact element={<AdminSignUp />} />
+          <Route path="/Users" exact element={<Users />} />
+          <Route path="/Pems" exact element={<Pems />} />
+          <Route path="/Shops" exact element={<Shops />} />
         </Routes>
       </div>
     </Router>
