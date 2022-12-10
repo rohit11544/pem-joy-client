@@ -1,7 +1,7 @@
 import axios from "axios";
 
 //--------------------------------------PEM----------------------------------------------------------
-const urlPEM = "http://localhost:5000/pem";
+const urlPEM = "https://pem-joy-server-beta.vercel.app/pem";
 
 export const fetchPEM = () => axios.get(urlPEM);
 
@@ -13,7 +13,7 @@ export const updatePEM = (id, updatePEM) =>
 export const deletePEM = (id) => axios.delete(`${urlPEM}/${id}`);
 
 //--------------------------------------customer---------------------------------------------------------
-const urlCustomer = "http://localhost:5000/customer";
+const urlCustomer = "https://pem-joy-server-beta.vercel.app/customer";
 
 export const fetchCustomer = () => axios.get(urlCustomer);
 
@@ -26,7 +26,7 @@ export const updateCustomer = (id, updateCustomer) =>
 export const deleteCustomer = (id) => axios.delete(`${urlCustomer}/${id}`);
 
 //--------------------------------------shop---------------------------------------------------------
-const urlShop = "http://localhost:5000/shop";
+const urlShop = "https://pem-joy-server-beta.vercel.app/shop";
 
 export const fetchShop = () => axios.get(urlShop);
 
@@ -38,7 +38,7 @@ export const updateShop = (id, updateShop) =>
 export const deleteShop = (id) => axios.delete(`${urlShop}/${id}`);
 
 //--------------------------------------Admin---------------------------------------------------------
-const urlAdmin = "http://localhost:5000/admin";
+const urlAdmin = "https://pem-joy-server-beta.vercel.app/admin";
 
 export const fetchAdmin = () => axios.get(urlAdmin);
 
